@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p @click="addCount">{{count}}</p>
+    <p k-text="count"></p>
+    <p k-html="desc"></p>
+    <input type="text" k-model="desc">
+  </div>
+  <script src="./complier.js"></script>
+  <script src="./kvue.js"></script>
+  <script>
+    const vm = new KVue({
+      el: '#app',
+      data: {
+        count: 0,
+        desc: '<span style="color:red;">KVue 可还行？</span>'
+      },
+      methods: {
+        addCount() {
+          this.count++
+        }
+      }
+    })
+
+    console.log(vm)
+
+    // setInterval(() => {
+    //   vm.count++
+    // }, 1000)
+  </script>
+</body>
+
+</html>
